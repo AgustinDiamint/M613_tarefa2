@@ -1,0 +1,9 @@
+|tarefa2b
+w[0] => Mux0.IN36
+w[1] => Mux0.IN35
+w[2] => Mux0.IN34
+w[3] => Mux0.IN33
+w[4] => Mux0.IN32
+f <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
