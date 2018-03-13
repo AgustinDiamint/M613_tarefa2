@@ -1,5 +1,5 @@
 Analysis & Synthesis report for tarefa2
-Tue Mar 13 12:16:23 2018
+Tue Mar 13 12:37:51 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -42,10 +42,10 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Tue Mar 13 12:16:23 2018       ;
+; Analysis & Synthesis Status     ; Successful - Tue Mar 13 12:37:51 2018       ;
 ; Quartus Prime Version           ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                   ; tarefa2                                     ;
-; Top-level Entity Name           ; bin2dec                                     ;
+; Top-level Entity Name           ; bin2hex                                     ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
 ; Total registers                 ; 0                                           ;
@@ -68,7 +68,7 @@ refer to the applicable agreement for further details.
 ; Option                                                                          ; Setting            ; Default Value      ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                          ; 5CSEMA5F31C6       ;                    ;
-; Top-level entity name                                                           ; bin2dec            ; tarefa2            ;
+; Top-level entity name                                                           ; bin2hex            ; tarefa2            ;
 ; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
 ; Use smart compilation                                                           ; Off                ; Off                ;
 ; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation      ; On                 ; On                 ;
@@ -170,7 +170,7 @@ refer to the applicable agreement for further details.
 +----------------------------------+-----------------+-----------------+---------------------------------------------------------------+---------+
 ; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                  ; Library ;
 +----------------------------------+-----------------+-----------------+---------------------------------------------------------------+---------+
-; ../tarefa2b/bin2dec.vhd          ; yes             ; User VHDL File  ; /home/ec2014/ra157637/MC613/M613_tarefa2/tarefa2b/bin2dec.vhd ;         ;
+; ../tarefa2b/bin2hex.vhd          ; yes             ; User VHDL File  ; /home/ec2014/ra157637/MC613/M613_tarefa2/tarefa2b/bin2hex.vhd ;         ;
 +----------------------------------+-----------------+-----------------+---------------------------------------------------------------+---------+
 
 
@@ -206,7 +206,7 @@ refer to the applicable agreement for further details.
 +----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
-; |bin2dec                   ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 11   ; 0            ; |bin2dec            ; bin2dec     ; work         ;
+; |bin2hex                   ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 11   ; 0            ; |bin2hex            ; bin2hex     ; work         ;
 +----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -231,14 +231,14 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_lcell_comb     ; 13                          ;
-;     normal            ; 13                          ;
-;         1 data inputs ; 6                           ;
+; arriav_lcell_comb     ; 8                           ;
+;     normal            ; 8                           ;
+;         1 data inputs ; 1                           ;
 ;         4 data inputs ; 7                           ;
 ; boundary_port         ; 11                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 2.00                        ;
-; Average LUT depth     ; 1.94                        ;
+; Average LUT depth     ; 1.50                        ;
 +-----------------------+-----------------------------+
 
 
@@ -257,7 +257,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Tue Mar 13 12:16:13 2018
+    Info: Processing started: Tue Mar 13 12:37:42 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off tarefa2 -c tarefa2
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -275,7 +275,7 @@ Info (12021): Found 2 design units, including 1 entities, in source file tarefa2
 Info (12021): Found 2 design units, including 1 entities, in source file tarefa2b.vhd
     Info (12022): Found design unit 1: tarefa2x-Behavior File: /home/ec2014/ra157637/MC613/M613_tarefa2/Tarefa2a/tarefa2b.vhd Line: 10
     Info (12023): Found entity 1: tarefa2x File: /home/ec2014/ra157637/MC613/M613_tarefa2/Tarefa2a/tarefa2b.vhd Line: 4
-Info (12127): Elaborating entity "bin2dec" for the top level hierarchy
+Info (12127): Elaborating entity "bin2hex" for the top level hierarchy
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
@@ -284,9 +284,9 @@ Info (21057): Implemented 18 device resources after synthesis - the final resour
     Info (21059): Implemented 7 output pins
     Info (21061): Implemented 7 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 1173 megabytes
-    Info: Processing ended: Tue Mar 13 12:16:23 2018
-    Info: Elapsed time: 00:00:10
+    Info: Peak virtual memory: 1171 megabytes
+    Info: Processing ended: Tue Mar 13 12:37:51 2018
+    Info: Elapsed time: 00:00:09
     Info: Total CPU time (on all processors): 00:00:21
 
 

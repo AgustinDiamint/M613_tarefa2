@@ -1,7 +1,7 @@
-Fitter Status : Successful - Tue Mar 13 12:16:50 2018
+Fitter Status : Successful - Tue Mar 13 12:38:18 2018
 Quartus Prime Version : 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 Revision Name : tarefa2
-Top-level Entity Name : bin2dec
+Top-level Entity Name : bin2hex
 Family : Cyclone V
 Device : 5CSEMA5F31C6
 Timing Models : Final

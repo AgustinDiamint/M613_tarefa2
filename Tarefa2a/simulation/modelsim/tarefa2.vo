@@ -16,7 +16,7 @@
 // PROGRAM "Quartus Prime"
 // VERSION "Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition"
 
-// DATE "03/13/2018 12:17:03"
+// DATE "03/13/2018 12:38:31"
 
 // 
 // Device: Altera 5CSEMA5F31C6 Package FBGA896
@@ -28,7 +28,7 @@
 
 `timescale 1 ps/ 1 ps
 
-module bin2dec (
+module bin2hex (
 	SW,
 	HEX0);
 input 	[3:0] SW;
@@ -75,7 +75,7 @@ wire \Mux0~0_combout ;
 
 // Location: IOOBUF_X89_Y8_N39
 cyclonev_io_obuf \HEX0[0]~output (
-	.i(!\Mux6~0_combout ),
+	.i(\Mux6~0_combout ),
 	.oe(vcc),
 	.dynamicterminationcontrol(gnd),
 	.seriesterminationcontrol(16'b0000000000000000),
@@ -91,7 +91,7 @@ defparam \HEX0[0]~output .shift_series_termination_control = "false";
 
 // Location: IOOBUF_X89_Y11_N79
 cyclonev_io_obuf \HEX0[1]~output (
-	.i(!\Mux5~0_combout ),
+	.i(\Mux5~0_combout ),
 	.oe(vcc),
 	.dynamicterminationcontrol(gnd),
 	.seriesterminationcontrol(16'b0000000000000000),
@@ -107,7 +107,7 @@ defparam \HEX0[1]~output .shift_series_termination_control = "false";
 
 // Location: IOOBUF_X89_Y11_N96
 cyclonev_io_obuf \HEX0[2]~output (
-	.i(!\Mux4~0_combout ),
+	.i(\Mux4~0_combout ),
 	.oe(vcc),
 	.dynamicterminationcontrol(gnd),
 	.seriesterminationcontrol(16'b0000000000000000),
@@ -123,7 +123,7 @@ defparam \HEX0[2]~output .shift_series_termination_control = "false";
 
 // Location: IOOBUF_X89_Y4_N79
 cyclonev_io_obuf \HEX0[3]~output (
-	.i(!\Mux3~0_combout ),
+	.i(\Mux3~0_combout ),
 	.oe(vcc),
 	.dynamicterminationcontrol(gnd),
 	.seriesterminationcontrol(16'b0000000000000000),
@@ -139,7 +139,7 @@ defparam \HEX0[3]~output .shift_series_termination_control = "false";
 
 // Location: IOOBUF_X89_Y13_N56
 cyclonev_io_obuf \HEX0[4]~output (
-	.i(!\Mux2~0_combout ),
+	.i(\Mux2~0_combout ),
 	.oe(vcc),
 	.dynamicterminationcontrol(gnd),
 	.seriesterminationcontrol(16'b0000000000000000),
@@ -155,7 +155,7 @@ defparam \HEX0[4]~output .shift_series_termination_control = "false";
 
 // Location: IOOBUF_X89_Y13_N39
 cyclonev_io_obuf \HEX0[5]~output (
-	.i(!\Mux1~0_combout ),
+	.i(\Mux1~0_combout ),
 	.oe(vcc),
 	.dynamicterminationcontrol(gnd),
 	.seriesterminationcontrol(16'b0000000000000000),
@@ -171,7 +171,7 @@ defparam \HEX0[5]~output .shift_series_termination_control = "false";
 
 // Location: IOOBUF_X89_Y4_N96
 cyclonev_io_obuf \HEX0[6]~output (
-	.i(\Mux0~0_combout ),
+	.i(!\Mux0~0_combout ),
 	.oe(vcc),
 	.dynamicterminationcontrol(gnd),
 	.seriesterminationcontrol(16'b0000000000000000),
@@ -232,7 +232,8 @@ defparam \SW[0]~input .simulate_z_as = "z";
 // Location: MLABCELL_X84_Y8_N0
 cyclonev_lcell_comb \Mux6~0 (
 // Equation(s):
-// \Mux6~0_combout  = ( !\SW[1]~input_o  & ( \SW[0]~input_o  & ( (!\SW[3]~input_o  & !\SW[2]~input_o ) ) ) ) # ( !\SW[1]~input_o  & ( !\SW[0]~input_o  & ( (!\SW[3]~input_o  & \SW[2]~input_o ) ) ) )
+// \Mux6~0_combout  = ( \SW[1]~input_o  & ( \SW[0]~input_o  & ( (\SW[3]~input_o  & !\SW[2]~input_o ) ) ) ) # ( !\SW[1]~input_o  & ( \SW[0]~input_o  & ( !\SW[3]~input_o  $ (\SW[2]~input_o ) ) ) ) # ( !\SW[1]~input_o  & ( !\SW[0]~input_o  & ( (!\SW[3]~input_o  
+// & \SW[2]~input_o ) ) ) )
 
 	.dataa(gnd),
 	.datab(!\SW[3]~input_o ),
@@ -249,14 +250,14 @@ cyclonev_lcell_comb \Mux6~0 (
 	.shareout());
 // synopsys translate_off
 defparam \Mux6~0 .extended_lut = "off";
-defparam \Mux6~0 .lut_mask = 64'h00CC0000CC000000;
+defparam \Mux6~0 .lut_mask = 64'h00CC0000CC333300;
 defparam \Mux6~0 .shared_arith = "off";
 // synopsys translate_on
 
 // Location: MLABCELL_X84_Y8_N39
 cyclonev_lcell_comb \Mux5~0 (
 // Equation(s):
-// \Mux5~0_combout  = ( \SW[1]~input_o  & ( \SW[0]~input_o  & ( \SW[3]~input_o  ) ) ) # ( !\SW[1]~input_o  & ( \SW[0]~input_o  & ( \SW[2]~input_o  ) ) ) # ( \SW[1]~input_o  & ( !\SW[0]~input_o  & ( (\SW[3]~input_o ) # (\SW[2]~input_o ) ) ) ) # ( 
+// \Mux5~0_combout  = ( \SW[1]~input_o  & ( \SW[0]~input_o  & ( \SW[3]~input_o  ) ) ) # ( !\SW[1]~input_o  & ( \SW[0]~input_o  & ( (\SW[2]~input_o  & !\SW[3]~input_o ) ) ) ) # ( \SW[1]~input_o  & ( !\SW[0]~input_o  & ( \SW[2]~input_o  ) ) ) # ( 
 // !\SW[1]~input_o  & ( !\SW[0]~input_o  & ( (\SW[2]~input_o  & \SW[3]~input_o ) ) ) )
 
 	.dataa(gnd),
@@ -274,15 +275,15 @@ cyclonev_lcell_comb \Mux5~0 (
 	.shareout());
 // synopsys translate_off
 defparam \Mux5~0 .extended_lut = "off";
-defparam \Mux5~0 .lut_mask = 64'h03033F3F33330F0F;
+defparam \Mux5~0 .lut_mask = 64'h0303333330300F0F;
 defparam \Mux5~0 .shared_arith = "off";
 // synopsys translate_on
 
 // Location: MLABCELL_X84_Y8_N12
 cyclonev_lcell_comb \Mux4~0 (
 // Equation(s):
-// \Mux4~0_combout  = ( \SW[1]~input_o  & ( \SW[0]~input_o  & ( \SW[3]~input_o  ) ) ) # ( !\SW[1]~input_o  & ( \SW[0]~input_o  & ( (\SW[3]~input_o  & \SW[2]~input_o ) ) ) ) # ( \SW[1]~input_o  & ( !\SW[0]~input_o  & ( (!\SW[2]~input_o ) # (\SW[3]~input_o ) ) 
-// ) ) # ( !\SW[1]~input_o  & ( !\SW[0]~input_o  & ( (\SW[3]~input_o  & \SW[2]~input_o ) ) ) )
+// \Mux4~0_combout  = ( \SW[1]~input_o  & ( \SW[0]~input_o  & ( (\SW[3]~input_o  & \SW[2]~input_o ) ) ) ) # ( \SW[1]~input_o  & ( !\SW[0]~input_o  & ( !\SW[3]~input_o  $ (\SW[2]~input_o ) ) ) ) # ( !\SW[1]~input_o  & ( !\SW[0]~input_o  & ( (\SW[3]~input_o  & 
+// \SW[2]~input_o ) ) ) )
 
 	.dataa(gnd),
 	.datab(!\SW[3]~input_o ),
@@ -299,15 +300,15 @@ cyclonev_lcell_comb \Mux4~0 (
 	.shareout());
 // synopsys translate_off
 defparam \Mux4~0 .extended_lut = "off";
-defparam \Mux4~0 .lut_mask = 64'h0033FF3300333333;
+defparam \Mux4~0 .lut_mask = 64'h0033CC3300000033;
 defparam \Mux4~0 .shared_arith = "off";
 // synopsys translate_on
 
 // Location: MLABCELL_X84_Y8_N21
 cyclonev_lcell_comb \Mux3~0 (
 // Equation(s):
-// \Mux3~0_combout  = ( \SW[1]~input_o  & ( \SW[0]~input_o  & ( (\SW[2]~input_o  & !\SW[3]~input_o ) ) ) ) # ( !\SW[1]~input_o  & ( \SW[0]~input_o  & ( (!\SW[2]~input_o  & !\SW[3]~input_o ) ) ) ) # ( !\SW[1]~input_o  & ( !\SW[0]~input_o  & ( (\SW[2]~input_o  
-// & !\SW[3]~input_o ) ) ) )
+// \Mux3~0_combout  = ( \SW[1]~input_o  & ( \SW[0]~input_o  & ( \SW[2]~input_o  ) ) ) # ( !\SW[1]~input_o  & ( \SW[0]~input_o  & ( (!\SW[2]~input_o  & !\SW[3]~input_o ) ) ) ) # ( \SW[1]~input_o  & ( !\SW[0]~input_o  & ( (!\SW[2]~input_o  & \SW[3]~input_o ) ) 
+// ) ) # ( !\SW[1]~input_o  & ( !\SW[0]~input_o  & ( (\SW[2]~input_o  & !\SW[3]~input_o ) ) ) )
 
 	.dataa(gnd),
 	.datab(!\SW[2]~input_o ),
@@ -324,7 +325,7 @@ cyclonev_lcell_comb \Mux3~0 (
 	.shareout());
 // synopsys translate_off
 defparam \Mux3~0 .extended_lut = "off";
-defparam \Mux3~0 .lut_mask = 64'h30300000C0C03030;
+defparam \Mux3~0 .lut_mask = 64'h30300C0CC0C03333;
 defparam \Mux3~0 .shared_arith = "off";
 // synopsys translate_on
 
@@ -356,7 +357,7 @@ defparam \Mux2~0 .shared_arith = "off";
 // Location: MLABCELL_X84_Y8_N33
 cyclonev_lcell_comb \Mux1~0 (
 // Equation(s):
-// \Mux1~0_combout  = ( \SW[1]~input_o  & ( \SW[0]~input_o  & ( !\SW[3]~input_o  ) ) ) # ( !\SW[1]~input_o  & ( \SW[0]~input_o  & ( (!\SW[2]~input_o  & !\SW[3]~input_o ) ) ) ) # ( \SW[1]~input_o  & ( !\SW[0]~input_o  & ( (!\SW[2]~input_o  & !\SW[3]~input_o ) 
+// \Mux1~0_combout  = ( \SW[1]~input_o  & ( \SW[0]~input_o  & ( !\SW[3]~input_o  ) ) ) # ( !\SW[1]~input_o  & ( \SW[0]~input_o  & ( !\SW[2]~input_o  $ (\SW[3]~input_o ) ) ) ) # ( \SW[1]~input_o  & ( !\SW[0]~input_o  & ( (!\SW[2]~input_o  & !\SW[3]~input_o ) 
 // ) ) )
 
 	.dataa(gnd),
@@ -374,7 +375,7 @@ cyclonev_lcell_comb \Mux1~0 (
 	.shareout());
 // synopsys translate_off
 defparam \Mux1~0 .extended_lut = "off";
-defparam \Mux1~0 .lut_mask = 64'h0000C0C0C0C0F0F0;
+defparam \Mux1~0 .lut_mask = 64'h0000C0C0C3C3F0F0;
 defparam \Mux1~0 .shared_arith = "off";
 // synopsys translate_on
 
@@ -382,7 +383,7 @@ defparam \Mux1~0 .shared_arith = "off";
 cyclonev_lcell_comb \Mux0~0 (
 // Equation(s):
 // \Mux0~0_combout  = ( \SW[1]~input_o  & ( \SW[0]~input_o  & ( (!\SW[2]~input_o ) # (\SW[3]~input_o ) ) ) ) # ( !\SW[1]~input_o  & ( \SW[0]~input_o  & ( (\SW[2]~input_o ) # (\SW[3]~input_o ) ) ) ) # ( \SW[1]~input_o  & ( !\SW[0]~input_o  ) ) # ( 
-// !\SW[1]~input_o  & ( !\SW[0]~input_o  & ( (\SW[2]~input_o ) # (\SW[3]~input_o ) ) ) )
+// !\SW[1]~input_o  & ( !\SW[0]~input_o  & ( !\SW[3]~input_o  $ (!\SW[2]~input_o ) ) ) )
 
 	.dataa(gnd),
 	.datab(!\SW[3]~input_o ),
@@ -399,7 +400,7 @@ cyclonev_lcell_comb \Mux0~0 (
 	.shareout());
 // synopsys translate_off
 defparam \Mux0~0 .extended_lut = "off";
-defparam \Mux0~0 .lut_mask = 64'h33FFFFFF33FFFF33;
+defparam \Mux0~0 .lut_mask = 64'h33CCFFFF33FFFF33;
 defparam \Mux0~0 .shared_arith = "off";
 // synopsys translate_on
 

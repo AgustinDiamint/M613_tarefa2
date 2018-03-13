@@ -1,4 +1,4 @@
-|bin2dec
+|bin2hex
 SW[0] => Mux0.IN19
 SW[0] => Mux1.IN19
 SW[0] => Mux2.IN19
